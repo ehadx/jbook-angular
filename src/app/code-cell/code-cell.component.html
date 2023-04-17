@@ -1,0 +1,11 @@
+<div class="cell-wrapper" #codeCellContainer>
+    <form [formGroup]="userCodeForm" (submit)="onSubmit()">
+        <div class="editor-wrapper">
+            <button class="button button-format is-primary is-small" (click)="onFormat($event)">Format</button>
+            <ngx-monaco-editor [options]="editorOptions" formControlName="input"></ngx-monaco-editor>
+        </div>
+    </form>
+
+    <iframe title="preview" sandbox="allow-scripts" [srcdoc]="html" #previewFrame></iframe>
+    <div class="resizable-handle resizable-handle-south" #resizeHandle (mousedown)="initDrag($event)"></div>
+</div>
